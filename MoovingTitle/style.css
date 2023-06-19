@@ -1,0 +1,38 @@
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-transform: uppercase;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  transition: 0.4s ease;
+}
+
+@font-face {
+  font-family: "bell";
+  src: url(./BellGothicStd-Light.otf);
+}
+
+@font-face {
+  font-family: "Bree";
+  src: url(./BreeSerif-Regular.ttf);
+}
+@font-face {
+  font-family: "charle";
+  src: url(./CharlemagneStd-Bold.otf);
+}
+@font-face {
+  font-family: "inter";
+  src: url(./Inter-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "merri";
+  src: url(./Merriweather-Light.ttf);
+}
+@font-face {
+  font-family: "philo";
+  src: url(./Philosopher-Regular.ttf);
+}
