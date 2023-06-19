@@ -11,7 +11,7 @@ const changeFont = () =>
     randomLettre.style.fontSize = randomSize;
 
     //   titre.style.fontFamily = fontRandom;
-  }, 400);
+  }, 200);
 
 changeFont();
 changeFont();
