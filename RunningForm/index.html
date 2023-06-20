@@ -13,7 +13,7 @@
       </div>
 
       <div class="distance container">
-        <label class="label" for="distance">Distance de course</label>
+        <label class="label " for="distance">Distance de course</label>
         <div>
           <select
             type="number"
@@ -21,7 +21,6 @@
             id="distance"
             class="input"
             autocomplete="off"
-            
           />
           <option value="0">Choisir votre distance</option>
           <option value="400">400m</option>
@@ -32,9 +31,9 @@
           <option value="10000">10k</option>
           <option value="21000">semi-marathon</option>
           <option value="42000">marathon</option>
-          <option value="">Rentrer votre distance</option>
+          <option value="custom">Rentrer votre distance</option>
         </select>
-          <span></span>
+          <input type="number" class="input " style="display:none;" id="custom" autocomplete="off" min="0" placeholder="kilomètres">
         </div>
       </div>
       <div class="duration container">
@@ -80,10 +79,10 @@
       </div>
       <div class="result">
         <button type="submit" id="Calcul">Calculer</button>
-        <h3>Vitesse moyenne:</h3>
+        <h3>Vitesse moyenne</h3>
         <span id="speed">0 km/h</span>
         <h3>Allure</h3>
-        <span id="pace">0'00/km</span>
+        <span id="pace">0'00 min/km</span>
       </div>
     </form>
     <script src="./script.js"></script>

@@ -12,23 +12,35 @@ body {
   display: flex;
   align-items: center;
   text-align: center;
-  background-color: #d5b59c;
+  background-color: #fdf2e9;
   font-family: regular, serif;
   height: 100vh;
 
   .container-form {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    width: 50%;
     margin: 0 auto;
-    border: 1px solid black;
+    border: 1px solid rgb(56, 56, 56);
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 5px 0px 1px rgb(56, 56, 56);
 
+    h1 {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 1px solid rgb(56, 56, 56);
+    }
+    h3 {
+      font-weight: 800;
+      text-transform: uppercase;
+      color: rgb(56, 56, 56);
+      padding-top: 20px;
+      padding-bottom: 5px;
+    }
     .container {
       display: flex;
       flex-direction: column;
-      padding: 20px;
+      padding: 20px 0px;
 
       .label {
         font-size: 1.2rem;
@@ -37,21 +49,53 @@ body {
       .input {
         padding: 10px 0;
         text-align: center;
+        background-color: #fffcfa;
+        border: none;
+        border-radius: 5px;
+        font-family: regular, serif;
+        border: 1px solid black;
+      }
+      .input:hover {
+        background-color: #fde6d5;
+        transform: translateY(-1px);
+      }
+      .input:focus {
+        outline: none;
       }
       .top {
         margin: 0;
       }
-
+      .time {
+        width: 80px;
+      }
       .chrono {
+        width: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
+        padding: 5px;
+        margin: 5px;
       }
     }
   }
   #Calcul {
     width: 25%;
     margin: 30px auto;
-    padding: 10px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #fffcfa;
+    border-radius: 5px;
+    font-family: regular, serif;
+    border: 1px solid black;
+    transition: 0.2s ease;
+  }
+  #Calcul:hover {
+    font-weight: 800;
+    background-color: #fde6d5;
+    transform: translateY(-4px);
+    box-shadow: 1px 5px 0px 1px rgb(56, 56, 56);
+  }
+  #Calcul:active {
+    background-color: #fadfcd;
   }
 }
