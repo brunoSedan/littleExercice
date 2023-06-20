@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "regular";
+  src: url(./font/Quicksand-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: #d5b59c;
+  font-family: regular, serif;
+  height: 100vh;
+}
+body .container-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 20px;
+}
+body .container-form .container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+body .container-form .container .label {
+  font-size: 1.2rem;
+  padding: 10px;
+}
+body .container-form .container .input {
+  padding: 10px 0;
+  text-align: center;
+}
+body .container-form .container .top {
+  margin: 0;
+}
+body .container-form .container .chrono {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body #Calcul {
+  width: 25%;
+  margin: 30px auto;
+  padding: 10px;
+}/*# sourceMappingURL=style.css.map */

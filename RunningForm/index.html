@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Running Form</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <form action="" class="container-form">
+      <div class="top">
+        <h1>Running Form</h1>
+      </div>
+
+      <div class="distance container">
+        <label class="label" for="distance">Distance de course</label>
+        <div>
+          <select
+            type="number"
+            value="1"
+            id="distance"
+            class="input"
+            autocomplete="off"
+            
+          />
+          <option value="0">Choisir votre distance</option>
+          <option value="400">400m</option>
+          <option value="800">800m</option>
+          <option value="1000">1k</option>
+          <option value="1600">1.6m</option>
+          <option value="5000">5k</option>
+          <option value="10000">10k</option>
+          <option value="21000">semi-marathon</option>
+          <option value="42000">marathon</option>
+          <option value="">Rentrer votre distance</option>
+        </select>
+          <span></span>
+        </div>
+      </div>
+      <div class="duration container">
+        <label class="label" for="duration">Chrono</label>
+        <div class="chrono">
+          <div>
+            <input
+              type="number"
+              value="0"
+              id="hour"
+              class="input time"
+              autocomplete="off"
+              min="0"
+              max="59"
+            />
+            <span>heure</span>
+          </div>
+          <div>
+            <input
+              type="number"
+              value="0"
+              id="minute"
+              class="input time"
+              autocomplete="off"
+              min="0"
+              max="59"
+            />
+            <span>min</span>
+          </div>
+          <div>
+            <input
+              type="number"
+              value="0"
+              id="second"
+              class="input time"
+              autocomplete="off"
+              min="0"
+              max="59"
+            />
+            <span>sec</span>
+          </div>
+        </div>
+      </div>
+      <div class="result">
+        <button type="submit" id="Calcul">Calculer</button>
+        <h3>Vitesse moyenne:</h3>
+        <span id="speed">0 km/h</span>
+        <h3>Allure</h3>
+        <span id="pace">0'00/km</span>
+      </div>
+    </form>
+    <script src="./script.js"></script>
+  </body>
+</html>
