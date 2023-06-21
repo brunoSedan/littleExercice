@@ -1,0 +1,7 @@
+div {
+  position: relative;
+}
+div::after {
+  position: absolute;
+  content: "";
+}
