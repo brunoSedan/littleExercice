@@ -4,19 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jeux 5000</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-    <button id="first" class="play-btn">play</button>
-    <button id="second" class="play-btn">second choix</button>
-    <button id="dice1" class="dice"></button>
-    <button id="dice2" class="dice"></button>
-    <button id="dice3" class="dice"></button>
-    <button id="dice4" class="dice"></button>
-    <button id="dice5" class="dice"></button>
-    <div id="dice-throw"></div>
-    <div id="dice-result"></div>
-    <div id="dice-continuer"></div>
+    <div class="play-ctn">
+      <div class="dice-ctn">
+        <div class="firstligne">
+          <button id="dice1" class="dice display0"></button>
+          <button id="dice2" class="dice display0"></button>
+          <button id="dice3" class="dice display0"></button>
+        </div>
+        <div class="secondligne">
+          <button id="dice4" class="dice display0"></button>
+          <button id="dice5" class="dice display0"></button>
+        </div>
+      </div>
+      <div class="btn-ctn">
+        <button id="second" class="play-btn">second Lancer</button>
+        <button id="first" class="play-btn">play</button>
+      </div>
+      <div class="message-ctn">
+        <div id="dice-throw"></div>
+        <div id="dice-result"></div>
+        <div id="dice-continuer"></div>
+      </div>
+    </div>
+
     <script src="./script.js"></script>
   </body>
 </html>
