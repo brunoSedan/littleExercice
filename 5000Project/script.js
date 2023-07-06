@@ -1,11 +1,19 @@
 //***************-----------------VARIABLES---------------***************** */
 //**---------Display************ */
-const playBtn = document.getElementById("first");
-const secondBtn = document.getElementById("second");
 const throwResult = document.getElementById("dice-throw");
 const AnalyseCtn = document.getElementById("dice-result");
 const nextCtn = document.getElementById("dice-continuer");
 const handData = [];
+const counterCtn = document.getElementById("dice-counter");
+//**---------BTN------------- */
+const playBtn = document.getElementById("first");
+const secondBtn = document.getElementById("second");
+const passBtn = document.getElementById("pass");
+const replayBtn = document.getElementById("replay");
+secondBtn.style.display = "none";
+passBtn.style.display = "none";
+replayBtn.style.display = "none";
+
 /////////////*********------Dice----*----*********/////////////
 const dice1 = document.getElementById("dice1");
 const dice2 = document.getElementById("dice2");
@@ -16,7 +24,11 @@ const allDice = document.querySelectorAll(".dice");
 
 /////////////////************---------Mooving Variable----------****************/////////////
 let nbChoice;
+let counterSave = 0;
+let counterNbr = 0;
 let diceFive = 0;
+let diceOne = 0;
+let diceBingo = 0;
 let rest = 0;
 let diceCount = 0;
 let nb = 0;
@@ -26,13 +38,20 @@ playGame();
 /**-------Play Game Function------------- */
 
 function playGame() {
-  // resetDice();
+  // resetDice();secondBtn.style.display = "none";
+  passBtn.style.display = "none";
+  replayBtn.style.display = "none";
+  playBtn.style.display = "block";
   playBtn.addEventListener("click", (e) => {
     nb++;
 
     if (nb == 1) {
       allDice.forEach((dice) => {
-        dice.classList.remove("display0");
+        for (i = 0; i <= 6; i++) {
+          dice.classList.remove("display" + i);
+        }
+        dice.classList.remove("rest", "selected");
+        dice.classList.add("dice");
       });
       DiceRandom();
       handData.push(nbDice1, nbDice2, nbDice3, nbDice4, nbDice5);
@@ -40,24 +59,34 @@ function playGame() {
       searchBingo();
       searchRest();
       replay();
+      counter();
+      pass();
     }
     playBtn.style.display = "none";
     // console.log(nb);
   });
 }
 
-//** ----Fonction Dice Display Reset----- */
-// function resetDice() {
-//   allDice.forEach((dice) => {
-//     dice.textContent = "";
-//     dice.classList.remove("selected", "bingo", "suite", "rest", "brelan");
-//     // for (i = 0; i <= 5; i++) {
-//     //   dice.classList.remove("dice" + i);
-//     // }
-//   });
-// }
+function pass() {
+  passBtn.addEventListener("click", (e) => {
+    console.log(counterSave);
+    /**Joueur suivant joue */
+  });
+}
+
+function reset() {
+  replayBtn.addEventListener("click", (e) => {
+    playGame();
+    counterSave = counterNbr;
+    nb = 0;
+    console.log(counterSave);
+  });
+}
+
 //***------Second Lancer */
 function secondThrow() {
+  secondBtn.style.display = "block";
+  passBtn.style.display = "block";
   secondBtn.addEventListener("click", (e) => {
     nb++;
     if (nb == 1) {
@@ -76,11 +105,31 @@ function secondThrow() {
           dice.classList.remove("dice");
         }
       });
+      secondBtn.style.display = "none";
       searchRest();
       searchBingo();
       replay();
+      counter();
+      pass();
     }
     // replay();
+  });
+}
+
+/**------------Fonction Counter-------------***/
+
+function counter() {
+  diceOne = 0;
+  diceFive = 0;
+  allDice.forEach((dice) => {
+    if (dice.value == 1) {
+      diceOne++;
+    }
+    if (dice.value == 5) {
+      diceFive++;
+    }
+    counterNbr = diceFive * 50 + diceOne * 100 + counterSave;
+    counterCtn.textContent = counterNbr;
   });
 }
 
@@ -98,17 +147,21 @@ function replay() {
     diceCount = 5;
   }
 
-  console.log(rest);
   switch (diceCount) {
     case 0:
       nextCtn.textContent = "vous avez perdu";
+      counterNbr == 0;
+      counterCtn.textContent = counterNbr;
       diceCount = 0;
       rest = 0;
       break;
     case 5:
       nextCtn.textContent = "vous avez tout gagné";
       diceCount = 0;
-      return playGame();
+      rest = 0;
+      replayBtn.style.display = "block";
+      reset();
+
       break;
     default:
       nextCtn.textContent = "vous pouvez rejouer des des";
@@ -116,6 +169,7 @@ function replay() {
       nb--;
       rest = 0;
       diceCount = 0;
+      diceBingo = 0;
       break;
   }
 }
@@ -124,13 +178,13 @@ function replay() {
 
 function searchBingo() {
   allDice.forEach((dice) => {
-    if ((dice.value = 5)) {
-      diceFive++;
-    }
-    if (diceFive == 5) {
-      AnalyseCtn.textContent = "bingo!!!";
+    if (dice.value == 5) {
+      diceBingo++;
     }
   });
+  if (diceBingo == 5) {
+    AnalyseCtn.textContent = "bingo!!!";
+  }
 }
 
 function searchRest() {
@@ -144,18 +198,6 @@ function searchRest() {
   });
 }
 
-// function searchRest(newData) {
-//   fiveData = newData.filter((number) => number == 5);
-//   oneData = newData.filter((number) => number == 1);
-//   if (fiveData.length > 0 || oneData.length > 0) {
-//     AnalyseCtn.textContent += `Vous avez des 5 ou des 1`;
-//     allDice.forEach((dice) => {
-//       if (dice.value == 1 || dice.value == 5) {
-//         dice.classList.add("rest", "selected");
-//       }
-//     });
-//   }
-// }
 //*********Fonction DICE********* */
 /** Fonction Aleatoire */
 function random(min, max) {
@@ -165,20 +207,20 @@ function random(min, max) {
   //The maximum is inclusive and the minimum is inclusive
 }
 /*-----Math Random---------- */
-// function DiceRandom() {
-//   nbDice1 = random(1, 6);
-//   nbDice2 = random(1, 6);
-//   nbDice3 = random(1, 6);
-//   nbDice4 = random(1, 6);
-//   nbDice5 = random(1, 6);
-// }
 function DiceRandom() {
-  nbDice1 = 5;
-  nbDice2 = 5;
-  nbDice3 = 5;
-  nbDice4 = 5;
-  nbDice5 = 5;
+  nbDice1 = random(1, 6);
+  nbDice2 = random(1, 6);
+  nbDice3 = random(1, 6);
+  nbDice4 = random(1, 6);
+  nbDice5 = random(1, 6);
 }
+// function DiceRandom() {
+//   nbDice1 = 5;
+//   nbDice2 = 1;
+//   nbDice3 = 5;
+//   nbDice4 = 5;
+//   nbDice5 = 5;
+// }
 function diceDisplay() {
   dice1.value = nbDice1;
   dice1.classList.add("display" + nbDice1);

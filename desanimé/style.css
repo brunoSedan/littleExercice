@@ -1,0 +1,54 @@
+.color {
+  height: 50px;
+  width: 50px;
+  background-color: aqua;
+}
+
+.display0 {
+  margin: 10px;
+  height: 60px;
+  width: 60px;
+  background: url(./assets/face0.gif) center/cover;
+}
+
+.display1 {
+  margin: 10px;
+  height: 60px;
+  width: 60px;
+  background: url(./assets/face1.gif) center/cover;
+}
+
+.display2 {
+  margin: 10px;
+  height: 60px;
+  width: 60px;
+  background: url(./assets/face2.gif) center/cover;
+}
+
+.display3 {
+  margin: 10px;
+  height: 60px;
+  width: 60px;
+  background: url(./assets/face3.gif) center/cover;
+}
+
+.display4 {
+  margin: 10px;
+  height: 60px;
+  width: 60px;
+  background: url(./assets/face4.gif) center/cover;
+}
+
+.display5 {
+  margin: 10px;
+  height: 60px;
+  width: 60px;
+  background: url(./assets/face5.gif) center/cover;
+}
+
+.display6 {
+  margin: 10px;
+  height: 60px;
+  width: 60px;
+  background: url(./assets/face6.gif) center/cover;
+} /*# sourceMappingURL=style.css.map */
